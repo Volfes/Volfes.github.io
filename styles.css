@@ -321,3 +321,61 @@ footer p {
     letter-spacing: 1px;
     opacity: 0.7;
 }
+
+/* Mini Hero dla podstron */
+.mini-hero {
+    height: 50vh !important; /* Niższy nagłówek na podstronach */
+    min-height: 300px;
+}
+
+/* Układ Grid dla sekcji O mnie */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 10rem 0;
+}
+
+.bio-image img {
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid #333;
+}
+
+.bio-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.bio-text p {
+    margin-bottom: 1.5rem;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+}
+
+/* Cennik dodatki */
+.price-tag {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text);
+    margin: 1rem 0;
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    padding: 10rem 0;
+}
+
+/* Responsywność dla podstron */
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+        padding: 5rem 0;
+    }
+    .mini-hero h1 {
+        font-size: 2rem;
+    }
+}
