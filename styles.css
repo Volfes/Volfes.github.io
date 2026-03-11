@@ -106,8 +106,8 @@ nav {
 }
 
 .revealed {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 /* Stylizacja Hamburgera na Mobile */
@@ -157,6 +157,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5%;
+    display: block; /* Upewniamy się, że nie jest ukryty */
 }
 
 .section-padding { padding: 8rem 0; }

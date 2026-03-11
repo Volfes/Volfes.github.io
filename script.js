@@ -18,7 +18,7 @@ window.addEventListener("scroll", () => {
 });
 
 // 3. Scroll Reveal - Animacja pojawiania się elementów
-const revealElements = document.querySelectorAll(".feature-card, .price-card, .hero-content");
+const revealElements = document.querySelectorAll(".feature-card, .price-card, .hero-content, .reveal-hidden");
 
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
