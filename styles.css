@@ -424,3 +424,44 @@ footer p {
         padding: 1rem 0 !important;
     }
 }
+
+@media (max-width: 480px) {
+    /* 1. Wymuszenie, aby nic nie wychodziło poza krawędź ekranu */
+    body, html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 2. Hero Content - mniejszy font i pełna szerokość */
+    .hero-content {
+        padding: 0 15px !important;
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem !important; /* Mniejszy font */
+        line-height: 1.2 !important;
+        word-wrap: break-word; /* Łamanie długich słów */
+    }
+
+    /* 3. Przyciski w kolumnie */
+    .cta-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .btn-primary, .btn-ig {
+        width: 90% !important; /* Prawie cała szerokość */
+        padding: 15px 10px !important;
+        font-size: 1rem !important;
+        margin: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+}
