@@ -5,6 +5,13 @@ const navLinks = document.querySelector(".nav-links");
 hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("open");
     hamburger.classList.toggle("toggle");
+    
+    // Blokada przewijania strony, gdy menu jest otwarte
+    if (navLinks.classList.contains("open")) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "initial";
+    }
 });
 
 // 2. Sticky Header - zmiana wyglądu przy skrolowaniu

@@ -125,27 +125,56 @@ nav {
 }
 
 @media (max-width: 768px) {
-    .hamburger { display: block; }
+    .hamburger { 
+        display: block; 
+        z-index: 1001; /* Musi być wyżej niż nav-links */
+    }
     
     .nav-links {
         position: fixed;
-        background: var(--bg);
+        background: #0a0a0a; /* Wymuszamy solidne czarne tło */
+        top: 0;
+        right: 0;
         height: 100vh;
         width: 100%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        clip-path: circle(100px at 90% -15%); /* Ukryte poza ekranem */
-        transition: all 0.7s ease-out;
+        margin: 0;
+        padding: 0;
+        z-index: 1000;
+        
+        /* Poprawka widoczności */
+        clip-path: circle(0px at 90% -15%);
+        transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
         pointer-events: none;
+        visibility: hidden; /* Dodatkowe zabezpieczenie */
     }
 
     .nav-links.open {
-        clip-path: circle(1200px at 90% -15%);
+        clip-path: circle(150% at 90% -15%);
         pointer-events: all;
+        visibility: visible;
     }
 
-    .nav-links li { margin: 1.5rem 0; font-size: 1.5rem; }
+    .nav-links li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.4s ease;
+    }
+
+    .nav-links.open li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.3s; /* Napisy pojawią się chwilę po otwarciu tła */
+    }
+
+    .nav-links li a {
+        font-size: 2rem;
+        color: white !important; /* Wymuszamy biały kolor linków */
+        display: block;
+    }
 }
 
 /* Animacja krzyżyka w hamburgerze */
