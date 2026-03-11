@@ -240,3 +240,83 @@ nav {
     .section-padding { padding: 4rem 0; }
     .cta-section h2 { font-size: 2rem; }
 }
+
+/* Styl dla półprzezroczystego przycisku Instagram */
+.btn-ig {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1); /* Półprzezroczyste tło */
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px); /* Efekt rozmycia za przyciskiem */
+    transition: all 0.3s ease;
+}
+
+.btn-ig:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Nowy układ Features (Kafelek) */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 10rem 5%;
+}
+
+.feature-card {
+    background: linear-gradient(145deg, #1a1a1a, #111111);
+    padding: 3.5rem 2.5rem;
+    border-radius: 20px;
+    text-align: left;
+    position: relative;
+    border: 1px solid #222;
+    transition: 0.4s;
+}
+
+.feature-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(212, 255, 0, 0.1); /* Bardzo jasny kolor primary */
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.feature-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    color: var(--primary);
+}
+
+.feature-card p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Poprawiona Stopka */
+footer {
+    padding: 4rem 5%;
+    border-top: 1px solid #222;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+footer p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
