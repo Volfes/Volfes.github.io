@@ -393,3 +393,34 @@ footer p {
         margin: 0 auto;
     }
 }
+
+@media (max-width: 600px) {
+    /* Hero - napisy i przyciski */
+    .hero-content {
+        padding: 0 5%;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem !important; /* Mniejsza czcionka na telefon */
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        flex-direction: column; /* Przyciski jeden pod drugim */
+        gap: 1rem;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cta-buttons a {
+        width: 100%; /* Przyciski na całą szerokość */
+        max-width: 280px; /* Nie za szerokie */
+        text-align: center;
+        margin-right: 0 !important;
+        padding: 1rem 0 !important;
+    }
+}
