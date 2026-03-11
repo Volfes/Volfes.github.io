@@ -1,128 +1,154 @@
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+:root {
+    --primary: #d4ff00; /* Neonowa limonka */
+    --bg: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --text: #ffffff;
+    --text-dim: #a0a0a0;
 }
 
-body{
-font-family:Poppins;
-line-height:1.6;
-color:#333;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-background:#111;
-color:white;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
 }
 
-nav a{
-margin-left:20px;
-color:white;
-text-decoration:none;
+/* Nawigacja */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    align-items: center;
 }
 
-.cta{
-display:inline-block;
-margin-top:20px;
-padding:15px 30px;
-background:#00c896;
-color:white;
-text-decoration:none;
-border-radius:5px;
+.logo { font-weight: 900; font-size: 1.5rem; }
+.logo span { color: var(--primary); }
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 2rem; }
+nav ul li a { color: var(--text); text-decoration: none; font-weight: 700; transition: 0.3s; }
+nav ul li a:hover, .active { color: var(--primary); }
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80') no-repeat center/cover;
 }
 
-.section{
-padding:80px 10%;
-text-align:center;
+.hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
+.hero h1 span { color: var(--primary); }
+
+.btn-primary {
+    background: var(--primary);
+    color: black;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 1rem;
 }
 
-.gray{
-background:#f5f5f5;
+/* Grid Cennika */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 5%;
 }
 
-.about-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:40px;
-margin-top:40px;
+.price-card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #333;
 }
 
-.cards{
-display:flex;
-gap:30px;
-justify-content:center;
-margin-top:40px;
-flex-wrap:wrap;
+.featured { border: 2px solid var(--primary); transform: scale(1.05); }
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    nav ul { display: none; } /* Uproszczenie na mobile */
 }
 
-.card{
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 10px 20px rgba(0,0,0,0.1);
-width:250px;
+/* Efekt Sticky Nav */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s ease;
 }
 
-.team{
-display:flex;
-justify-content:center;
-gap:40px;
-margin-top:40px;
-flex-wrap:wrap;
+.nav-scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--primary);
 }
 
-.trainer img{
-width:200px;
-border-radius:10px;
+/* Animacje wejścia (Scroll Reveal) */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
 }
 
-.reviews{
-display:flex;
-gap:30px;
-justify-content:center;
-flex-wrap:wrap;
-margin-top:40px;
+.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.review{
-background:white;
-padding:25px;
-border-radius:10px;
-width:250px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+/* Stylizacja Hamburgera na Mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
 }
 
-.contact-form{
-display:flex;
-flex-direction:column;
-max-width:400px;
-margin:auto;
-gap:15px;
-margin-top:30px;
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text);
+    margin: 5px;
+    transition: all 0.3s ease;
 }
 
-input,textarea{
-padding:12px;
-border:1px solid #ddd;
-border-radius:5px;
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    
+    .nav-links {
+        position: fixed;
+        background: var(--bg);
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        clip-path: circle(100px at 90% -15%); /* Ukryte poza ekranem */
+        transition: all 0.7s ease-out;
+        pointer-events: none;
+    }
+
+    .nav-links.open {
+        clip-path: circle(1200px at 90% -15%);
+        pointer-events: all;
+    }
+
+    .nav-links li { margin: 1.5rem 0; font-size: 1.5rem; }
 }
 
-button{
-padding:12px;
-background:#00c896;
-border:none;
-color:white;
-border-radius:5px;
-}
-
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
+/* Animacja krzyżyka w hamburgerze */
+.toggle .line:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+.toggle .line:nth-child(2) { opacity: 0; }
+.toggle .line:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
