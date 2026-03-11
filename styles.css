@@ -76,12 +76,6 @@ nav ul li a:hover, .active { color: var(--primary); }
 
 .featured { border: 2px solid var(--primary); transform: scale(1.05); }
 
-/* Responsywność */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    nav ul { display: none; } /* Uproszczenie na mobile */
-}
-
 /* Efekt Sticky Nav */
 nav {
     position: fixed;
@@ -175,7 +169,19 @@ nav {
         color: white !important; /* Wymuszamy biały kolor linków */
         display: block;
     }
+    .grid-2 { grid-template-columns: 1fr; }
+    .section-padding { padding: 4rem 0; }
+    .cta-section h2 { font-size: 2rem; }
+
+    .mini-hero h1 {
+        font-size: 2rem;
+    }
+	{
+    .hero h1 { font-size: 2.5rem; }
+    nav ul { display: none; } /* Uproszczenie na mobile */
+	}
 }
+
 
 /* Animacja krzyżyka w hamburgerze */
 .toggle .line:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
@@ -263,13 +269,6 @@ nav {
 
 .cta-section h2 { font-size: 3rem; margin-bottom: 2rem; }
 .cta-section .btn-primary { background: black; color: white; }
-
-/* Responsive */
-@media (max-width: 768px) {
-    .grid-2 { grid-template-columns: 1fr; }
-    .section-padding { padding: 4rem 0; }
-    .cta-section h2 { font-size: 2rem; }
-}
 
 /* Styl dla półprzezroczystego przycisku Instagram */
 .btn-ig {
@@ -398,13 +397,3 @@ footer p {
     padding: 10rem 0;
 }
 
-/* Responsywność dla podstron */
-@media (max-width: 768px) {
-    .grid-2 {
-        grid-template-columns: 1fr;
-        padding: 5rem 0;
-    }
-    .mini-hero h1 {
-        font-size: 2rem;
-    }
-}
