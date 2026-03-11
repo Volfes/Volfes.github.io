@@ -6,6 +6,12 @@
     --text-dim: #a0a0a0;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -372,3 +378,18 @@ footer p {
     padding: 10rem 0;
 }
 
+@media (max-width: 768px) {
+    .features, .price-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 5% !important;
+        gap: 2rem !important;
+    }
+
+    .feature-card {
+        width: 100%; /* Karta zajmuje całą szerokość kontenera */
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
