@@ -1,12 +1,13 @@
-// 1. Obsługa Menu Mobilnego
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 
 hamburger.addEventListener("click", () => {
+    // Przełączamy klasę open na liście ul
     navLinks.classList.toggle("open");
+    // Animujemy hamburgera w krzyżyk
     hamburger.classList.toggle("toggle");
     
-    // Blokada przewijania strony, gdy menu jest otwarte
+    // Blokada scrolla
     if (navLinks.classList.contains("open")) {
         document.body.style.overflow = "hidden";
     } else {
@@ -14,19 +15,17 @@ hamburger.addEventListener("click", () => {
     }
 });
 
-// 2. Sticky Header - zmiana wyglądu przy skrolowaniu
-window.addEventListener("scroll", () => {
-    const nav = document.getElementById("navbar");
-    if (window.scrollY > 50) {
-        nav.classList.add("nav-scrolled");
-    } else {
-        nav.classList.remove("nav-scrolled");
-    }
+// Zamykanie menu po kliknięciu w link (ważne!)
+document.querySelectorAll(".nav-links li a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        hamburger.classList.remove("toggle");
+        document.body.style.overflow = "initial";
+    });
 });
 
-// 3. Scroll Reveal - Animacja pojawiania się elementów
-const revealElements = document.querySelectorAll(".feature-card, .price-card, .hero-content, .reveal-hidden");
-
+// Intersection Observer (do pojawiania się elementów)
+const revealElements = document.querySelectorAll(".reveal-hidden");
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -35,7 +34,4 @@ const revealObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-revealElements.forEach(el => {
-    el.classList.add("reveal-hidden"); // Stan początkowy
-    revealObserver.observe(el);
-});
+revealElements.forEach(el => revealObserver.observe(el));
