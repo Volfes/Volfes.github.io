@@ -119,69 +119,62 @@ nav {
 }
 
 @media (max-width: 768px) {
-    .hamburger { 
-        display: block; 
-        z-index: 1001; /* Musi być wyżej niż nav-links */
-    }
-    
+    /* Ukrywamy standardowe menu, ale przygotowujemy je pod animację */
     .nav-links {
+        display: flex; /* Zmieniamy z none na flex! */
         position: fixed;
-        background: #0a0a0a; /* Wymuszamy solidne czarne tło */
-        top: 0;
-        right: 0;
+        right: 0px;
+        top: 0px;
         height: 100vh;
         width: 100%;
+        background-color: var(--bg);
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        transform: translateX(100%); /* Menu jest schowane za prawą krawędzią */
+        transition: transform 0.5s ease-in-out;
+        z-index: 1000;
         margin: 0;
         padding: 0;
-        z-index: 1000;
-        
-        /* Poprawka widoczności */
-        clip-path: circle(0px at 90% -15%);
-        transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-        pointer-events: none;
-        visibility: hidden; /* Dodatkowe zabezpieczenie */
     }
 
+    /* Klasa dodawana przez JS */
     .nav-links.open {
-        clip-path: circle(150% at 90% -15%);
-        pointer-events: all;
-        visibility: visible;
+        transform: translateX(0%); /* Menu wjeżdża na ekran */
     }
 
     .nav-links li {
-        margin: 1.5rem 0;
+        margin: 2rem 0;
         opacity: 0;
-        transform: translateY(20px);
-        transition: 0.4s ease;
     }
 
     .nav-links.open li {
         opacity: 1;
-        transform: translateY(0);
-        transition-delay: 0.3s; /* Napisy pojawią się chwilę po otwarciu tła */
+        transition: opacity 0.5s ease 0.3s;
     }
 
     .nav-links li a {
         font-size: 2rem;
-        color: white !important; /* Wymuszamy biały kolor linków */
+    }
+
+    /* Hamburger musi być zawsze na wierzchu */
+    .hamburger {
         display: block;
+        z-index: 1001;
+        cursor: pointer;
     }
-    .grid-2 { grid-template-columns: 1fr; }
-    .section-padding { padding: 4rem 0; }
-    .cta-section h2 { font-size: 2rem; }
 
-    .mini-hero h1 {
-        font-size: 2rem;
+    /* Poprawka dla Hero na mobile, żeby tekst nie uciekał */
+    .hero h1 {
+        font-size: 2.5rem;
     }
-	{
-    .hero h1 { font-size: 2.5rem; }
-    nav ul { display: none; } /* Uproszczenie na mobile */
-	}
+    
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
-
 
 /* Animacja krzyżyka w hamburgerze */
 .toggle .line:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
